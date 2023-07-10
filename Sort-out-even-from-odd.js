@@ -20,7 +20,7 @@ Example:
 
 // Solution
 
-function menFromBoys(arr) {
+function evenFromOdd(arr) {
   arr = Array.from(new Set(arr));
   let odd = arr.filter(a => a % 2).sort((a, b) => b - a);
   let even = arr.filter(a => a % 2 === 0).sort((a, b) => a - b);
@@ -29,8 +29,36 @@ function menFromBoys(arr) {
 
 // or
 
-const menFromBoys = arr => {
+const  evenFromOdd = arr => {
   let [evens, odds] = [[], []];
   [...new Set(arr)].sort((a, b) => a - b) .forEach(n => n % 2 ? odds.unshift(n) : evens.push(n));
   return [...evens, ...odds];
 };
+
+// or
+function evenFromOdd(arr) {
+  let even = []
+  let odd = []
+  let final = []
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] % 2 === 0) {
+      even.push(arr[i])
+    }
+    else {
+      odd.push(arr[i])
+    }
+  }
+  even.sort(function(a, b){return a-b});
+  odd.sort(function(a, b){return b-a});
+
+  function removeDuplicates(arr) {
+    let unique_array = []
+    for(let j = 0; j < arr.length; j++) {
+      if (unique_array.indexOf(arr[j]) == -1) {
+        unique_array.push(arr[j])
+      }
+    }
+    return unique_array;
+  }
+  return removeDuplicates(even).concat(removeDuplicates(odd))
+}
