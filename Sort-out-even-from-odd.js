@@ -28,3 +28,9 @@ function menFromBoys(arr) {
 }
 
 // or
+
+const menFromBoys = arr => {
+  let [evens, odds] = [[], []];
+  [...new Set(arr)].sort((a, b) => a - b) .forEach(n => n % 2 ? odds.unshift(n) : evens.push(n));
+  return [...evens, ...odds];
+};
