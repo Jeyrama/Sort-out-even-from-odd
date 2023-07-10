@@ -36,6 +36,7 @@ const  evenFromOdd = arr => {
 };
 
 // or
+
 function evenFromOdd(arr) {
   let even = []
   let odd = []
